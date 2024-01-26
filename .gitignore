@@ -1,0 +1,9 @@
+/include
+/lib
+/bin
+/pyvenv.cfg
+__pycache__/
+/share
+
+/dist
+/EEGSpark.egg-info
