@@ -1,5 +1,5 @@
 from eegspark.function.func import Func
 from eegspark.algor.algor import Algor
-from eegspark.common.api import Pipeline
+from eegspark.common.api import load
 
-Pipeline.load("file").algor(Algor()).func(Func()).exec()
+load("file").algor(Algor()).algor(Algor()).exec(Func())
