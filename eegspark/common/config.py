@@ -1,7 +1,7 @@
 
 class Config:
     def __init__(self) -> None:
-        self.eeg_file_path = None
+        self.fake = True
         pass
 
     def load_config_from_map(self, cfg):
@@ -12,5 +12,11 @@ class Config:
         # load config from json str
         pass
 
-    def eeg_file_path(self):
-        return self.eeg_file_path
+_config = None
+
+def config() -> Config:
+    global _config
+    if _config != None:
+        return _config
+    _config = Config()
+    return _config
