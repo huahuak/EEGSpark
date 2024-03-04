@@ -13,3 +13,6 @@ def spark_session() -> SparkSession:
 
 def error(str):
     print(str)
+
+def info(str):
+    print(str)

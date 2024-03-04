@@ -1,5 +1,6 @@
 from typing import Callable
 from scipy.signal import butter, lfilter, freqz
+from eegspark.common.eegspark import error
 
 
 class Algor:
@@ -8,7 +9,7 @@ class Algor:
 
     def function() -> Callable:
         # must be impl by sub-class
-        raise Exception("the algorithm not found!")
+        error("the algorithm not found!")
 
     def __call__(self) -> Callable:
         return self.function()
