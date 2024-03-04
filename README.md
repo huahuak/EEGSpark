@@ -16,5 +16,5 @@ python eegspark/test/pysparkdemo.py
 test demo with follow command.
 
 ```bash
-python -m eggspark.test.test
+python -m eegspark.test.test
 ```
