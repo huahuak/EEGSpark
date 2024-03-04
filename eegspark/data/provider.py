@@ -1,11 +1,11 @@
 from eegspark.data.fetcher import Source
 import eegspark.data.converter as conv
 import eegspark.common.eegspark as eegspark
+from eegspark.common.eegrdd import EEGRDD
 from eegspark.common.config import config
-from pyspark import RDD
 
 
-def Source2Rdd(source: Source) -> RDD:
+def Source2EEGRDD(source: Source) -> "EEGRDD":
     # now only single file
     files = [source.target]
 
@@ -19,4 +19,6 @@ def Source2Rdd(source: Source) -> RDD:
     rdd = sc.parallelize(files)
     rdd = rdd.map(conv.load_mat_file)
 
-    return rdd
+    eRDD = EEGRDD(rdd)
+
+    return eRDD
