@@ -16,8 +16,10 @@ def Source2EEGRDD(source: Source) -> "EEGRDD":
         return rdd
 
     # read from .mat file
-    rdd = sc.parallelize(files)
-    rdd = rdd.map(conv.load_mat_file)
+    rdd = sc.parallelize(files) # RDD: [file]
+    rdd = rdd.flatMap(conv.load_mat_file) # [file] - map -> [[ch, ch]] - flat -> [ch, ch]
+
+    # times [timeStamp] 
 
     eRDD = EEGRDD(rdd)
 

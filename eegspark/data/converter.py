@@ -10,7 +10,7 @@ def load_mat_file(file_path: str):
     - dict: A dictionary containing the 'data' array loaded from the .mat file.
     """
     try:
-        data = sio.loadmat(file_path)
+        data = sio.loadmat(file_path) # [ch, ch, ch]: [[1, 2, 4, 5], [1, 2, 4, 5]]
         return {"data": data["data"]} if "data" in data else {}
     except FileNotFoundError:
         error(f"File not found: {file_path}")
@@ -27,4 +27,4 @@ def fake():
     fs = 1000  # 采样频率
     t = np.arange(0, 1, 1 / fs)  # 时间向量
     signal = np.sin(2 * np.pi * 5 * t) + 0.5 * np.sin(2 * np.pi * 50 * t)
-    return [signal]
+    return [signal] # [ch] [[1, 2, 4, 5]]

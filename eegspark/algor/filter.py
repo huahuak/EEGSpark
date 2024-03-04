@@ -18,4 +18,8 @@ class LowPassFilter(Algor):
         return y
 
     def function(self) -> Callable:
+        # x = ch
         return lambda x: LowPassFilter.butter_lowpass(x, self.lowpass_cutoff, self.fs)
+
+
+# class HighPassFilter
