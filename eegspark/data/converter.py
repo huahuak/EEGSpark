@@ -1,5 +1,5 @@
 import scipy.io as sio
-import eegspark.common.eegspark as eegspark
+from eegspark.common.eegspark import error
 
 
 def load_mat_file(file_path: str):
@@ -13,11 +13,11 @@ def load_mat_file(file_path: str):
         data = sio.loadmat(file_path)
         return {"data": data["data"]} if "data" in data else {}
     except FileNotFoundError:
-        eegspark.error(f"File not found: {file_path}")
+        error(f"File not found: {file_path}")
     except sio.matlab.miobase.MatReadError as e:
-        eegspark.error(f"MAT file read error: {e}")
+        error(f"MAT file read error: {e}")
     except Exception as e:
-        eegspark.error(f"Error occurred while loading EEG data: {e}")
+        error(f"Error occurred while loading EEG data: {e}")
 
 
 import numpy as np
