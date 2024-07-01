@@ -18,7 +18,8 @@ lowpass_filter = LowPassFilter(lowpass=30, fs=500)
 filtered_eegrdd = eegrdd.map_channel(lowpass_filter())
 # # 将高通滤波器应用于RDD数据
 highpass_filter = HighPassFilter(highpass=0.5, fs=500)
-filtered_eegrdd = filtered_eegrdd.map_channel(highpass_filter())
+filtered_eegrdd = filtered_eegrdd.map_channels_with_filter(highpass_filter.
+    highpass_cutoff, fs=500)
 # # 遍历EEGRDD的channelDataRDD并打印每个通道的前5个数据点
 # # eegrdd.foreach_channel(lambda x: print(x[0:5]))
 
